@@ -113,7 +113,7 @@
             return validate;
         }
         const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
-            const params = {Ten1, Ten2,name, phone, link: window.parent.location.href, actionTime: time};
+            const params = {Ten1, Ten2,name, phone, link: 'test', actionTime: time};
             const response = await fetch(bareURL, {
                 method: "POST",
                 headers: {
@@ -162,8 +162,8 @@
             document.getElementById(encodePhone).onpaste = e => e.preventDefault();
         }
         disableCopy();
-        
-        window.parent.postMessage('post', window.parent.location.origin);
+        console.log(window.parent)
+        // window.parent.postMessage('post', window.parent.location.origin);
         
     </script>
 </body>
