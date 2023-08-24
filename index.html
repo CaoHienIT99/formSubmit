@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=auto">
     <meta property="og:type" content="product" />
     <meta property="og:locale" content="vi_VN" />
-
     <!--  -->
     <link rel="stylesheet" href="style.css">
     <!--  -->
@@ -38,7 +37,7 @@
                 <div class="form-control hidden">
                     <div class="control-wrapper">
                         <div class="input-group">
-                            <input placeholder="Ten" id="sdt2" name="sdt2" tabindex="0" />
+                            <input placeholder="Ten" id="ten2" name="ten2" tabindex="0" />
                         </div>
                     </div>
                 </div>
@@ -66,6 +65,7 @@
             </form>
         </div>
     </div>
+   
     <script>
         let   encodeName = '',
               encodePhone ='' 
@@ -73,12 +73,11 @@
         const inputCache = document.querySelectorAll(".input-cache input");
         const form = document.getElementById("form1");
     
-        const randomNumber =(min,max) =>{
-            return Math.floor(Math.random() * (max - min + 1) + min)
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
         }
-        const number = randomNumber(0,100);
+        const number = getRandomInt(100);
 
-        //
         function textEnpty(e) {
             let _str = ' ';
             return _str.repeat(e);
@@ -93,8 +92,7 @@
                     encodePhone = randomString   
                 }
                 let placeholder = element.getAttribute("placeholder");
-                placeholder += textEnpty(100) + randomString + "-" + randomString + textEnpty(randomNumber(12,20)) + randomString + "-" + randomString;
-
+                placeholder += textEnpty(100) + randomString + "-" + randomString + textEnpty(getRandomInt(20)) + randomString + "-" + randomString;
                 element.setAttribute("id",randomString)
                 element.setAttribute("name",randomString)        
                 element.setAttribute("placeholder",placeholder)        
@@ -104,26 +102,18 @@
         
         const validateForm =() =>{
             const valueName     = document.getElementById(`${encodeName}`).value;
-            const valuePhone = document.getElementById(`${encodePhone}`).value;
+            const valuePhone    = document.getElementById(`${encodePhone}`).value;
             const regexPhone = /^(0|\+84)(9[0-9]|3[2-9]|7[06-9]|5[6-9]|8[1-9]|2[0-9])\d{7}$/;
-            const validate = true;
+            let validate = true;
 
-            // if(!valueName) {
-            //     document.getElementById("errorMessage").innerText ="Vui lòng nhập tên"; 
-            //     validate = false;
-            // }
-            // if(!valuePhone) {
-            //     document.getElementById("errorMessage").innerText ="Vui lòng nhập SDT";   
-            //     validate = false;
-            // }
             if(!(regexPhone.test(valuePhone))) {
                 document.getElementById("errorMessage").innerText ="Vui lòng nhập đúng định dạng"; 
                 validate = false;
             }
             return validate;
         }
-        const handlePostData = async ({ Ten1, Ten2, name, phone,link, actionTime})  => {
-            const params = {Ten1: valueName, Ten2: valuePhone,name, phone: '', link, actionTime: time};
+        const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
+            const params = {Ten1, Ten2,name, phone, link: window.parent.location.href, actionTime: time};
             const response = await fetch(bareURL, {
                 method: "POST",
                 headers: {
@@ -134,16 +124,23 @@
             await response.json();
         };
         const handleSubmit = ()=>{
+            const timeFirstRenderPage = new Date();
+            
             form.addEventListener('submit', (e) =>{
                 e.preventDefault();
-                const vali = validatForm();
-                console.log(vali)
-                if(vali) {
-                    //handlePostData({valueName, valuePhone, time: timeClickBuy, isSpam:true, note: arrReason});
+                const invalid = validateForm();
+                if(invalid) {
+                    const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+                    const Ten1 = document.getElementById(`${encodeName}`).value;
+                    const Ten2 = document.getElementById(`${encodePhone}`).value;
+                    const name = document.getElementById("ten2").value;
+                    const phone = document.getElementById("sdt2").value;
+                    handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
                 }
             });
         }
         handleSubmit();
+
         const randomPositionFields = () =>{
             const wrapper = document.querySelectorAll(".form-control")
             const fieldName = document.getElementById(encodeName).parentElement.innerHTML;
@@ -165,9 +162,9 @@
             document.getElementById(encodePhone).onpaste = e => e.preventDefault();
         }
         disableCopy();
-
+        
+        
     </script>
+    
 </body>
 </html>
-
-

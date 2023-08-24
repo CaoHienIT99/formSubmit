@@ -25,6 +25,7 @@ form .form-control{
     border-color: rgb(237, 48, 81);
     box-shadow: rgb(0, 0, 0) 0px 15px 16px -18px;
 }
+
 form .form-control input{
     text-transform: inherit;
     text-decoration: inherit;
@@ -45,6 +46,9 @@ form .form-control input{
     color: inherit;
     font-size: inherit;
     border: none;
+}
+form .form-control input:focus{
+    outline: none;
 }
 select{
     background-color: transparent;
