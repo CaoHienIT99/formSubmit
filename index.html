@@ -12,17 +12,9 @@
     <meta property="og:locale" content="vi_VN" />
 
     <!--  -->
+    <link rel="stylesheet" href="style.css">
     <!--  -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        .hidden {
-            display: none !important
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
 </head>
 <body>
     <div class="form-submit">
@@ -32,14 +24,14 @@
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input placeholder="T&#xEA;n (*)" id="" name="" tabindex="0" />
+                            <input placeholder="Họ và T&#xEA;n" id="" name="" tabindex="0" required />
                         </div>
                     </div>
                 </div>
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i (*)" id="" name="" tabindex="0" />
+                            <input placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="" tabindex="0" required/>
                         </div>
                     </div>
                 </div>
@@ -58,23 +50,22 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <div class="control-wrapper">
-                        <select class="form-control--seclect" tabindex="6" name="" data-selected="">
+                        <select class="form-control--seclect" tabindex="6" name="" data-selected="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)">
                             <option value="" class="hidden">Chọn combo muốn mua</option>
-                            <option value="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)">1 Hộp Nhỏ - 10 Viên (Giá dùng thử)</option>
+                            <option value="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)" selected>1 Hộp Nhỏ - 10 Viên (Giá dùng thử)</option>
                             <option value="1 Hộp Lớn - 30 viên">1 Hộp Lớn - 30 viên</option>
                             <option value="2 Hộp Lớn  - 60 viên">2 Hộp Lớn  - 60 viên</option>
                         </select>
-                    </div> 
                 </div>
                 <div id="errorMessage"></div>
-                <div class="form-control">
-                    <button type="submit" id="btn-submit">ĐĂNG KÝ NGAY</button>
+                <div class="form-submit">
+                    <div class="button-wrapper">
+                        <button type="submit" id="btn-submit">ĐĂNG KÝ NGAY</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
-    <script src="js/main.js"></script>
     <script>
         let   encodeName = '',
               encodePhone ='' 
