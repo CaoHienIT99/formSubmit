@@ -68,24 +68,26 @@
    
     <script>
         let   encodeName = '',
-              encodePhone ='',
-              parentURL = '' 
+              encodePhone ='';
+        let parentUrl = (window.location != window.parent.location)
+            ? document.referrer
+            : document.location.href;
         const bareURL = 'https://backendsyncdata.skycom.vn/api/spam_check/form-spam-check';
         const inputCache = document.querySelectorAll(".input-cache input");
         const form = document.getElementById("form1");
 
-        function handleMsg(e) {
-            if (e.data) {
-                var data = JSON.parse(e.data);
-                parentUrl = data.dochref;
-            }
-            console.log(e.data)
-        }
-        if (window.addEventListener) {
-            window.addEventListener('message', handleMsg, false);
-        } else if (window.attachEvent) { // ie8
-            window.attachEvent('onmessage', handleDochandleMsgHeightMsg);
-        }
+        // function handleMsg(e) {
+        //     if (e.data) {
+        //         var data = JSON.parse(e.data);
+        //         parentUrl = data.dochref;
+        //     }
+        //     console.log(e.data)
+        // }
+        // if (window.addEventListener) {
+        //     window.addEventListener('message', handleMsg, false);
+        // } else if (window.attachEvent) { // ie8
+        //     window.attachEvent('onmessage', handleDochandleMsgHeightMsg);
+        // }
 
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
@@ -127,7 +129,7 @@
             return validate;
         }
         const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
-            const params = {Ten1, Ten2,name, phone, link:  window.parent.location.href , actionTime: time};
+            const params = {Ten1, Ten2,name, phone, link:  parentUrl, actionTime: time};
             const response = await fetch(bareURL, {
                 method: "POST",
                 headers: {
@@ -177,7 +179,7 @@
         }
         disableCopy();
 
-        
+        console.log(parentUrl);
     </script>
 </body>
 </html>
