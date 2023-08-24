@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://hvnet.vn/FormGui2020.aspx?id=18584&SourceId=2 -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Gửi thông tin</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="audience" content="General">
+    <meta name="resource-type" content="Document">
+    <meta name="distribution" content="Global">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=auto">
+    <meta property="og:type" content="product">
+    <meta property="og:locale" content="vi_VN">
+    
+    <link href="./Gửi thông tin_files/default.css" type="text/css" rel="stylesheet" onerror="this.href = &#39;https://hdnet.com.vn/cssform/default.css?v=00101&#39;">
+    <link href="./Gửi thông tin_files/style11.css" rel="stylesheet" onerror="this.href = &#39;https://hdnet.com.vn/cssform/style11.css&#39;">
+
+    <link rel="stylesheet" href="./Gửi thông tin_files/font-awesome.min.css">
+    <style>
+        .hide {
+            display: none !important
+        }
+
+        .center-box {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .img-box img {
+            max-width: 100%;
+        }
+
+        .img-box {
+            width: 150px;
+            margin: auto;
+        }
+
+        .content-box h3 {
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif !important;
+            font-size: 22px;
+            margin: 0;
+            margin-top: 12px;
+            color: #b72020;
+        }
+    </style>
+    
+    
+    <script type="text/javascript" async="" src="./Gửi thông tin_files/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-9OTZ8SiMijeWjnYSXo9GM41sIwr+l2FFUhIAcxbPhIFEgn+MDTrEpzq3Alr7uXd2"></script><script src="./Gửi thông tin_files/api.js" async="" defer=""></script>
+       
+        <script>
+            function Submit() {
+                var _nav = false; //navigator.webdriver // trên hvnet là false, hdnet là true
+                var outValidate = valiadateForm();
+                if (outValidate != false) {
+                    $(".overlay-box").removeClass('hide');
+                    $("#btn-submit").prop('disabled', true).html('&#x110;ang x&#x1EED; l&#xFD;...');
+                    SendAjaxPost('', _nav);//https://hvnet.vn, https://hdnet.com.vn
+                }
+            }
+        </script>
+    
+<style>.XPYtI-DbiiXP { display: block; width: 100%; height: 39px; font-size: 14px; line-height: 1.42857; padding-left: 10px; color: rgb(85, 85, 85); background-color: rgb(255, 255, 255); background-image: none; border: 1px solid rgb(204, 204, 204); border-radius: 4px; box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px inset; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s; }</style><style type="text/css">.vue-slider-dot{position:absolute;-webkit-transition:all 0s;transition:all 0s;z-index:5}.vue-slider-dot:focus{outline:none}.vue-slider-dot-tooltip{position:absolute;visibility:hidden}.vue-slider-dot-hover:hover .vue-slider-dot-tooltip,.vue-slider-dot-tooltip-show{visibility:visible}.vue-slider-dot-tooltip-top{top:-10px;left:50%;-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}.vue-slider-dot-tooltip-bottom{bottom:-10px;left:50%;-webkit-transform:translate(-50%,100%);transform:translate(-50%,100%)}.vue-slider-dot-tooltip-left{left:-10px;top:50%;-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%)}.vue-slider-dot-tooltip-right{right:-10px;top:50%;-webkit-transform:translate(100%,-50%);transform:translate(100%,-50%)}</style><style type="text/css">.vue-slider-marks{position:relative;width:100%;height:100%}.vue-slider-mark{position:absolute;z-index:1}.vue-slider-ltr .vue-slider-mark,.vue-slider-rtl .vue-slider-mark{width:0;height:100%;top:50%}.vue-slider-ltr .vue-slider-mark-step,.vue-slider-rtl .vue-slider-mark-step{top:0}.vue-slider-ltr .vue-slider-mark-label,.vue-slider-rtl .vue-slider-mark-label{top:100%;margin-top:10px}.vue-slider-ltr .vue-slider-mark{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-slider-ltr .vue-slider-mark-step{left:0}.vue-slider-ltr .vue-slider-mark-label{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.vue-slider-rtl .vue-slider-mark{-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%)}.vue-slider-rtl .vue-slider-mark-step{right:0}.vue-slider-rtl .vue-slider-mark-label{right:50%;-webkit-transform:translateX(50%);transform:translateX(50%)}.vue-slider-btt .vue-slider-mark,.vue-slider-ttb .vue-slider-mark{width:100%;height:0;left:50%}.vue-slider-btt .vue-slider-mark-step,.vue-slider-ttb .vue-slider-mark-step{left:0}.vue-slider-btt .vue-slider-mark-label,.vue-slider-ttb .vue-slider-mark-label{left:100%;margin-left:10px}.vue-slider-btt .vue-slider-mark{-webkit-transform:translate(-50%,50%);transform:translate(-50%,50%)}.vue-slider-btt .vue-slider-mark-step{top:0}.vue-slider-btt .vue-slider-mark-label{top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.vue-slider-ttb .vue-slider-mark{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-slider-ttb .vue-slider-mark-step{bottom:0}.vue-slider-ttb .vue-slider-mark-label{bottom:50%;-webkit-transform:translateY(50%);transform:translateY(50%)}.vue-slider-mark-label,.vue-slider-mark-step{position:absolute}</style><style type="text/css">.vue-slider{position:relative;-webkit-box-sizing:content-box;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:block;-webkit-tap-highlight-color:rgba(0,0,0,0)}.vue-slider-rail{position:relative;width:100%;height:100%;-webkit-transition-property:width,height,left,right,top,bottom;transition-property:width,height,left,right,top,bottom}.vue-slider-process{position:absolute;z-index:1}</style><style>@import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/content/styles.css");</style></head>
+<body class="fixing" cz-shortcut-listen="true">
+    
+       
+    
+    
+
+    <div class="overlay-box hide"><div class="lds-ripple"><div></div><div></div></div></div>
+    <input type="hidden" value="OS X 10.15.7 64-bit" id="platform">
+    <div class="form-order clearfix mrighta">
+        <input type="hidden" value="18584" id="formId">
+        <input type="hidden" value="2" id="sourceId">
+        <input type="hidden" value="10" id="wayland">
+        <form class="form-inline" id="form1">
+                <div class="form-div col-xs-12 ">
+                    <label class="sr-only" runat="server">Họ và tên</label>
+                    <div class="input-group mr-sm-2 mb-sm-0 manua-cache">
+                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                        <input class="XPYtI-DbiiXP" placeholder="  Tên (*)                                                                                                     NRVKa-N1ehTU                vP3MW-YDy3ZV" id="NRVKa-N1ehTU" name="NRVKa-N1ehTU" tabindex="5" data-symbol="">
+                        <span class="fosc" data-placeholder="Tên (*)"></span>
+                    </div>
+                </div>
+                <div class="form-div col-xs-12 ">
+                    <label class="sr-only">Số điện thoại</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0 manua-cache">
+                        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                        <input class="XPYtI-DbiiXP" placeholder="  Số điện thoại (*)                                                                                                     Jc8UA-v4nDrR                qKGK8-0jem4H" id="Jc8UA-v4nDrR" name="Jc8UA-v4nDrR" tabindex="6">
+                        <span class="fosc" data-placeholder="Số điện thoại (*)"></span>
+                    </div>
+                </div>
+
+            <div class="form-div col-xs-12 ">
+                <label class="sr-only">Địa chỉ</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 manua-cache">
+                    <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                    <input class="XPYtI-DbiiXP" placeholder="  Địa chỉ (*)                                                                                                     sN3B7-bdByNm                GOYsN-zwIWQP" id="sN3B7-bdByNm" name="sN3B7-bdByNm" tabindex="7">
+                    <span class="fosc" data-placeholder="Địa chỉ (*)"></span>
+                </div>
+            </div>
+
+
+            <div class="form-div col-xs-12 hide">
+                <label class="sr-only">Số điện thoại</label>
+                <div class="input-group mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                    <input class="form-control" placeholder="Số điện thoại (*)" id="txtText2" name="txtText2" tabindex="0">
+                    <span class="fosc" data-placeholder="Số điện thoại (*)"></span>
+                </div>
+            </div>
+
+            <div class="form-div col-xs-12 hide">
+                <label class="sr-only">Email</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                    <input class="form-control" placeholder="Email" id="txtText4" name="txtText4" tabindex="10">
+                    <span class="fosc" data-placeholder="Email"></span>
+                </div>
+            </div>
+            <input type="hidden" id="ChangeIUCombo" value="1">
+            <input type="hidden" id="ChangeIUProducts" value="2" data-id="">
+
+
+                    <div class="form-div col-xs-12 hide">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="comboRadios" id="comboRadios0" value="0" checked="">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="form-div col-xs-12 ">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productRadios" id="productRadios0" value="Trải Nghiệm: Mua 1 Chai Tẩy Sàn Gạch Giá 199k + 20k Ship " checked="">
+                                            <label class="form-check-label" for="productRadios0">
+                                                Trải Nghiệm: Mua 1 Chai Tẩy Sàn Gạch Giá 199k + 20k Ship 
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productRadios" id="productRadios1" value="Tiết Kiệm: Mua 2 Chai Tẩy Sàn Gạch Giá 299k + FREESHIP">
+                                            <label class="form-check-label" for="productRadios1">
+                                                Tiết Kiệm: Mua 2 Chai Tẩy Sàn Gạch Giá 299k + FREESHIP
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="productRadios" id="productRadios2" value="Siêu Rẻ: Mua 3 Chai Tẩy Sàn Gạch + Tặng 1 Chai Giá 399k + FREESHIP">
+                                            <label class="form-check-label" for="productRadios2">
+                                                Siêu Rẻ: Mua 3 Chai Tẩy Sàn Gạch + Tặng 1 Chai Giá 399k + FREESHIP
+                                            </label>
+                                        </div>
+                        </div>
+                    </div>
+
+            <div class="form-div col-xs-12 ">
+                <label class="sr-only">Ghi chú</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon input-group-note"><i class="fa fa-comment-o"></i></div>
+                    <textarea class="form-control" placeholder="Ghi chú" id="txtText7" name="txtText7" tabindex="11"></textarea>
+                    <span class="fosc" data-placeholder="Ghi chú"></span>
+                </div>
+            </div>
+
+
+            <div class="form-div col-xs-12 hide" id="showerror">
+                <div class="input-group mr-sm-2 mb-sm-0 text-center">
+                    <span class="cl-red">*Vui lòng nhập họ tên!</span>
+                </div>
+            </div>
+
+
+            <div class="form-group div-submit clearfix">
+                <div class="label"></div>
+                <div class="input box-button">
+                    <button class="btn-1" type="button" onclick="Submit()" id="btn-submit">
+                        ĐẶT HÀNG
+                    </button>
+                    <div class="login100-form-bgbtn"></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <script src="./Gửi thông tin_files/jquery-1.11.1.min.js"></script>
+    <script src="./Gửi thông tin_files/platform.js"></script>
+    
+    <script type="text/javascript">
+        var parentUrl = "";
+        var counter = 0;
+
+        var _rdSoluAngen = "";
+        var _rdSoluHngon = "";
+        var _rdSoluDngen = "";
+        var _rdSoluCoter = 0;
+
+        var _indexTab = getRandomInt(3, 7);
+        var _firstText = getRandomInt(2, 6);
+        var _lastText = getRandomInt(1, 20);
+        var _wayland = $("#wayland").val();
+
+        var _textGui = '&#x110;&#x1EB6;T H&#xC0;NG';
+
+        $(document).ready(function() {
+            /*Kế thừa css từ class vào class được random ra */
+            var _antiClass = randomManuString(5) + "-" + randomManuString(6);
+            RamdomAndAppenHtmlFromClass('form-control', _antiClass);
+
+            $('.form-control').each(function() {
+                $(this).on('blur', function() {
+                    if ($(this).val().trim() != "") { $(this).addClass('has-val'); }
+                    else { $(this).removeClass('has-val'); }
+                })
+            });
+
+            $('.manua-cache input').each(function(e) {
+                var _antiString = randomString(5) + "-" + randomString(6);
+
+                $(this).attr("class", _antiClass);
+                $(this).attr("id", _antiString);
+                $(this).attr("name", _antiString);
+                var _pla = textEnpty(_firstText) + $(this).attr("placeholder");
+
+                if (_wayland % 2 == 0) {
+
+                    if (_rdSoluCoter == 0) {
+                        _rdSoluAngen = _antiString;
+                        _pla += "                                                                                                     " + _antiString + textEnpty(_lastText) + randomString(5) + "-" + randomString(6);
+                        $(this).attr("placeholder", _pla);
+                        $(this).attr("tabindex", _indexTab);
+                    }
+
+                    if (_rdSoluCoter == 1) {
+                        _rdSoluHngon = _antiString;
+                        _pla += "                                                                                                     " + _antiString + textEnpty(_lastText) + randomString(5) + "-" + randomString(6);
+                        $(this).attr("placeholder", _pla);
+                        $(this).attr("tabindex", _indexTab = _indexTab + 1);
+                    }
+                }
+                else {
+
+                    if (_rdSoluCoter == 0) {
+                        _rdSoluHngon = _antiString;
+                        _pla += "                                                                                                     " + _antiString + textEnpty(_lastText) + randomString(5) + "-" + randomString(6);
+                        $(this).attr("placeholder", _pla);
+                        $(this).attr("tabindex", _indexTab);
+                    }
+
+                    if (_rdSoluCoter == 1) {
+                        _rdSoluAngen = _antiString;
+                        _pla += "                                                                                                     " + _antiString + textEnpty(_lastText) + randomString(5) + "-" + randomString(6);
+                        $(this).attr("placeholder", _pla);
+                        $(this).attr("tabindex", _indexTab = _indexTab + 1);
+                    }
+                }
+
+
+                if (_rdSoluCoter == 2) {
+                    _rdSoluDngen = _antiString;
+                    _pla += "                                                                                                     " + _antiString + textEnpty(_lastText) + randomString(5) + "-" + randomString(6);
+                    $(this).attr("placeholder", _pla);
+                    $(this).attr("tabindex", _indexTab = _indexTab + 1);
+                }
+                _rdSoluCoter = _rdSoluCoter + 1;
+            });
+
+            $('.' + _antiClass).each(function() {
+                $(this).on('blur', function() {
+                    if ($(this).val().trim() != "") { $(this).addClass('has-val'); }
+                    else { $(this).removeClass('has-val'); }
+                })
+            });
+        });
+
+        function textEnpty(e) {
+            var _str = "";
+            for (var i = 0; i < e; i++) {
+                _str += " ";
+            }
+            return _str;
+        }
+
+        function randomString(len, charSet) {
+            charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var randomString = '';
+            for (var i = 0; i < len; i++) {
+                var randomPoz = Math.floor(Math.random() * charSet.length);
+                randomString += charSet.substring(randomPoz, randomPoz + 1);
+            }
+            return randomString;
+        }
+
+        function randomManuString(len, charSet) {
+            charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            var randomString = '';
+            for (var i = 0; i < len; i++) {
+                var randomPoz = Math.floor(Math.random() * charSet.length);
+                randomString += charSet.substring(randomPoz, randomPoz + 1);
+            }
+            return randomString;
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+        }
+
+        function incrementSeconds() {
+            counter += 1;
+        }
+
+        setInterval(incrementSeconds, 1000);
+
+        function get_hostname(url) {
+            var m = url.match(/^https:\/\/[^/]+/);
+            return m ? m[0] : null;
+        }
+
+        function handleDocHeightMsg(e) {
+            if (e.data) {
+                var data = JSON.parse(e.data);
+                parentUrl = data.dochref;
+            }
+        }
+
+        if (window.addEventListener) {
+            window.addEventListener('message', handleDocHeightMsg, false);
+        } else if (window.attachEvent) { // ie8
+            window.attachEvent('onmessage', handleDocHeightMsg);
+        }
+
+        //function Submit() {
+        //    var outValidate = valiadateForm();
+        //    if (outValidate != false) {
+        //        grecaptcha.execute();
+        //    }
+        //}
+
+
+
+        function SendAjaxPost(url, nav) {
+            var note = $("#txtText7").val();
+            if ($("#txtText2").val() != "") {
+                note += ". honeypot phone " + $("#txtText2").val() + ".";
+            }
+
+            var IdCombo = 0;
+            var isRadio = $("#ChangeIUCombo").val();
+            if (isRadio == 0) {
+                IdCombo = $("#selectCombo option:selected").val();
+            }
+            else {
+                IdCombo = $("input[type='radio'][name='comboRadios']:checked").val();
+            }
+
+            var SanPham = "";
+            var isSanPham = $("#ChangeIUProducts").val();
+
+            if (isSanPham == 0) {
+                SanPham = " " + $("#selectProduct option:selected").val();
+            }
+            else if (isSanPham == 1) {
+                $('input[name="productnames"]:checked').each(function() {
+                    SanPham += " " + this.value + ",";
+                });
+
+                if (!SanPham) {
+                    SanPham = 'Qu&#x1EBF; H&#x1B0;&#x1A1;ng - Chai T&#x1EA9;y S&#xE0;n G&#x1EA1;ch X5 &#x110;a N&#x103;ng -STMS';
+                }
+
+                if (SanPham.endsWith(",")) {
+                    SanPham = SanPham.substring(0, SanPham.length - 1);
+                }
+            }
+            else {
+                SanPham = $("input[type='radio'][name='productRadios']:checked").val();
+            }
+
+            note += SanPham;
+
+            var param = {
+                'id': $("#formId").val(), 'Ten1': $("#" + _rdSoluAngen).val(), 'Ten2': $("#" + _rdSoluHngon).val(), 'Ten3': $("#" + _rdSoluDngen).val(), 'Ten4': $("#txtText4").val()
+                , 'Ten7': note, 'IdComBo': IdCombo, 'OsSystem': $("#platform").val(), 'UrlParent': parentUrl, "SourceId": $("#sourceId").val(), "counterTimer": counter, "navWebdriver": nav
+                , 'productIds': $("#ChangeIUProducts").data('id')
+            };
+
+            $.ajax({
+                url: '' + url + '/Orders/OrderSubmit',
+                datatype: 'application/json',
+                type: 'post',
+                cache: false,
+                data: param,
+                success: function(result) {
+                    if (result.isredirect) {
+                        $(".overlay-box").addClass('hide');
+                        if (result.isurlredirect) {
+                            window.parent.location.href = result.urlredirect;
+                        }
+                        else {
+                            window.location.href = "" + url + "/FormGuiNewTC2020.aspx?id=" + result.id;
+                        }
+                    }
+                    else {
+                        $("#btn-submit").attr('disabled', false).html(_textGui);
+                        $(".overlay-box").addClass('hide');
+                        $("#showerror").removeClass('hide');
+                        $(".cl-red").html("" + result.message + "");
+                        focusText(result.field);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $("#btn-submit").attr('disabled', false).html(_textGui);
+                    $(".overlay-box").addClass('hide');
+                    alert(textStatus + ": " + errorThrown);
+                }
+            });
+        }
+
+        function valiadateForm() {
+            var ten1 = $("#" + _rdSoluAngen).val();
+            var ten2 = $("#" + _rdSoluHngon).val();
+            var ten3 = $("#" + _rdSoluDngen).val();
+            var _ht = 'NTN';
+            var _please = _ht == "CARO" ? "Please enter " : "Vui lòng nhập ";
+            var flat = true;
+
+            if (!ten1) {
+                showError(_please + 'Tên (*)', "1");
+                return flat = false;
+            }
+
+            if (ten1.length > 128) {
+                showError(_please + 'Tên (*)' + outText(_ht, "1"), "1");
+                return flat = false;
+            }
+
+            if (!ten2) {
+                showError(_please + 'Số điện thoại (*)', "2");
+                return flat = false;
+            }
+
+            if (!ten3) {
+                showError(_please + 'Địa chỉ (*)', "3");
+                return flat = false;
+            }
+
+            if (ten3.length > 500) {
+                showError(_please + 'Địa chỉ (*)' + outText(_ht, "3"), "3");
+                return flat = false;
+            }
+
+            return flat;
+        }
+
+        function outText(ht, numberError) {
+            switch (numberError) {
+                case "1":
+                    return ht == "CARO" ? " no more than 100 characters!" : " không quá 100 kí tự!";
+                    break;
+                case "3":
+                    return ht == "CARO" ? " no more than 500 characters!" : " không quá 500 kí tự!";
+                    break;
+                default:
+                    return ""
+            }
+        }
+
+        function showError(result, focus) {
+            $("#showerror").removeClass('hide');
+            $(".cl-red").html("" + result + "");
+            focusText(focus)
+        }
+
+
+        function focusText(e) {
+            if (e == "1") {
+                $("#" + _rdSoluAngen).focus();
+            }
+            if (e == "2") {
+                $("#" + _rdSoluHngon).focus();
+            }
+            if (e == "3") {
+                $("#" + _rdSoluDngen).focus();
+            }
+            if (e == "4") {
+                $("#txtText4").focus();
+            }
+            if (e == "7") {
+                $("#txtText5").focus();
+            }
+            if (e == "8") {
+                window.location.href = "/FormGuiNewTC2020block.aspx";   //  Block Phone
+            }
+            if (e == "9") {
+                $("#selectCombo").focus();
+            }
+        }
+
+        function getParam(p) {
+            var match = RegExp('[?&]' + p + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        function getExpiryRecord(value) {
+            var expiryPeriod = 90 * 24 * 60 * 60 * 1000;
+            var expiryDate = new Date().getTime() + expiryPeriod;
+            return {
+                value: value,
+                expiryDate: expiryDate
+            };
+        }
+
+        function addGclid() {
+            var gclidParam = getParam('gclid');
+            var gclidFormFields = ['gclid_field', 'foobar'];
+            var gclidRecord = null;
+            var currGclidFormField;
+            var gclsrcParam = getParam('gclsrc');
+            var isGclsrcValid = !gclsrcParam || gclsrcParam.indexOf('aw') !== -1;
+
+            gclidFormFields.forEach(function(field) {
+                if (document.getElementById(field)) {
+                    currGclidFormField = document.getElementById(field);
+                }
+            });
+
+            if (gclidParam && isGclsrcValid) {
+                gclidRecord = getExpiryRecord(gclidParam);
+                localStorage.setItem('gclid', JSON.stringify(gclidRecord));
+            }
+
+            var gclid = gclidRecord || JSON.parse(localStorage.getItem('gclid'));
+            var isGclidValid = gclid && new Date().getTime() < gclid.expiryDate;
+            if (currGclidFormField && isGclidValid) {
+                currGclidFormField.value = gclid.value;
+                document.getElementById('expiry').value = gclid.expiryDate;
+            }
+        }
+
+        function getStyle(className) {
+            var styleSheets = document.styleSheets;
+            var styleSheetsLength = styleSheets.length;
+            for (var i = 0; i < styleSheetsLength; i++) {
+                if (styleSheets[i].rules) { var classes = styleSheets[i].rules; }
+                else {
+                    try { if (!styleSheets[i].cssRules) { continue; } }
+                    //Note that SecurityError exception is specific to Firefox.
+                    catch (e) { if (e.name == 'SecurityError') { console.log("SecurityError. Cant readd: " + styleSheets[i].href); continue; } }
+                    var classes = styleSheets[i].cssRules;
+                }
+
+                for (var x = 0; x < classes.length; x++) {
+                    if (classes[x].selectorText == className) {
+                        var ret = (classes[x].cssText) ? classes[x].cssText : classes[x].style.cssText;
+                        if (ret.indexOf(classes[x].selectorText) == -1) { ret = classes[x].selectorText + "{" + ret + "}"; }
+                        return ret;
+                    }
+                }
+            }
+        }
+
+        function stringToHTML(str) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(str, 'text/html');
+            return doc.body;
+        };
+
+        function RamdomAndAppenHtmlFromClass(classNameStyle, classRandom) {
+            var para = getStyle('.' + classNameStyle);
+            para = "<style>" + para.replace('form-control', classRandom) + "</style>";
+            var _htmlStyle = $.parseHTML(para)[0].innerHTML;
+            var wrapper = document.createElement('style');
+            wrapper.innerHTML = _htmlStyle;
+            document.head.appendChild(wrapper);
+        }
+        window.addEventListener('load', addGclid);
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var ua = /[?&]ua=([^&]+)(?:&|$)/.exec(location.search);
+
+            if (ua) {
+                ua = decodeURIComponent(ua[1]).replace(/\+/g, ' ');
+                document.getElementById('custom').value = ua;
+            }
+
+            platform = ua ? platform.parse(ua) : platform;
+            platform.os = String(platform.os);
+            $("#platform").val(platform.os);
+        });
+    </script>
+
+    <script>
+        $('body').bind('copy paste', function(e) {
+            e.preventDefault(); return false;
+        });
+
+
+    </script>
+    
+
+
+</body><div class="troywell-avia"><template shadowrootmode="open">
+        <style>@import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/content/styles.css");</style>
+        <div id="troywell-avia" data-v-app=""><div class="app"><div data-v-1062ff19=""><!----></div></div></div></template></div><div class="troywell-caa"><template shadowrootmode="open">
+    <style>
+    @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/content/styles.css");
+    @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/caa/styles.css");
+    </style>
+    <div id="troywell-caa" data-v-app=""><div class="content-app" data-v-52a8e116=""><!----></div></div></template></div></html>
