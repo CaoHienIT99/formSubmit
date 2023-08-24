@@ -68,11 +68,25 @@
    
     <script>
         let   encodeName = '',
-              encodePhone ='' 
+              encodePhone ='',
+              parentURL = '' 
         const bareURL = 'https://backendsyncdata.skycom.vn/api/spam_check/form-spam-check';
         const inputCache = document.querySelectorAll(".input-cache input");
         const form = document.getElementById("form1");
-    
+
+        function handleMsg(e) {
+            if (e.data) {
+                var data = JSON.parse(e.data);
+                parentUrl = data.dochref;
+            }
+            console.log(e.data)
+        }
+        if (window.addEventListener) {
+            window.addEventListener('message', handleMsg, false);
+        } else if (window.attachEvent) { // ie8
+            window.attachEvent('onmessage', handleDochandleMsgHeightMsg);
+        }
+
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
@@ -162,8 +176,7 @@
             document.getElementById(encodePhone).onpaste = e => e.preventDefault();
         }
         disableCopy();
-        console.log(window.parent)
-        // window.parent.postMessage('post', window.parent.location.origin);
+
         
     </script>
 </body>
