@@ -135,13 +135,12 @@
                     const Ten2 = document.getElementById(`${encodePhone}`).value;
                     const name = document.getElementById("ten2").value;
                     const phone = document.getElementById("sdt2").value;
-
                     handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
                 }
             });
         }
         handleSubmit();
-        
+
         const randomPositionFields = () =>{
             const wrapper = document.querySelectorAll(".form-control")
             const fieldName = document.getElementById(encodeName).parentElement.innerHTML;
