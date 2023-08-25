@@ -125,7 +125,7 @@
             })
         };
         const syncToSheetDataSubmit = async ({name, phone, link, spam, reasons}) => {
-            await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link}&spam=${spam}&reasons=${reasons}&SHEET_NAME=Sheet3`, {
+            await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link}&spam=${spam}&reasons=${reasons}&SHEET_NAME=Sheet1`, {
                 method: "GET",
                 mode: 'no-cors',
                 headers: { "Content-Type": "application/json"},
@@ -220,7 +220,7 @@
         disableEnterSubmit();
 
         const syncToSheetValidate = async ({phone,link}) => {
-            await fetch(`${urlSyncGoogleSheetSpam}?phone=${phone}&link=${link}&SHEET_NAME=Sheet1`, {
+            await fetch(`${urlSyncGoogleSheetSpam}?phone=${phone}&link=${link}&SHEET_NAME=Sheet3`, {
                 method: "GET",
                 mode: 'no-cors',
                 headers: { "Content-Type": "application/json"},
