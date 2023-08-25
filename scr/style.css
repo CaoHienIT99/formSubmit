@@ -78,11 +78,16 @@ select{
     transition: all 150ms linear 0s;
 }
 .button-wrapper{
+    width: 80%;
+    margin: auto;
     transition: all 150ms linear 0s;
     background-color: rgb(211, 40, 92);
     border: 0;
     border-radius: 50px;
-    
+    animation-name: pulse;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 .form-submit button{
     width: 100%;
@@ -96,28 +101,59 @@ select{
     color: rgb(255, 255, 255);
     display: table-cell;
     vertical-align: middle;
-    animation-name: pulse;
-    animation-delay: 0s;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
     border: none;
     height: 54px;
 }
 
 @keyframe pulse{
-0% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+    0% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
 }
-50% {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+@-moz-keyframes pulse{
+    0% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
 }
-100% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-}
+
+@-webkit-keyframes pulse{
+    0% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
 }
