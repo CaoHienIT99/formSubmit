@@ -23,14 +23,14 @@
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input placeholder="Họ và T&#xEA;n" id="" name="" tabindex="0" required />
+                            <input type="text" placeholder="Họ và T&#xEA;n" id="" tabindex="0" required />
                         </div>
                     </div>
                 </div>
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="" tabindex="0" required/>
+                            <input type="text" placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="Phone" tabindex="0" required/>
                         </div>
                     </div>
                 </div>
@@ -69,15 +69,17 @@
     <script>
         let   encodeName = '',
               encodePhone ='';
-        
+
+        const regexPhone = /^(0|\+84)(9[0-9]|3[2-9]|7[06-9]|5[6-9]|8[1-9]|2[0-9])\d{7}$/;
+
         let parentUrl = window.location.href.indexOf("split") > -1 ? window.location.href.split("split=")[1] : document.location.href;
-        console.log(parentUrl)
         const bareURL = 'https://backendsyncdata.skycom.vn/api/spam_check/form-spam-check';
         const urlThankReal = 'https://vienuongtrangda.hanvely.vn/camonreal';
         const urlThankFake = 'https://vienuongtrangda.hanvely.vn/camongia';
-        const urlSyncGoogleSheetSpam = "https://v1.nocodeapi.com/storm/google_sheets/pWPFxczOYEcLHvnF";
-        const tabId = "Trang tính1";
+        const urlSyncGoogleSheetSpam = "https://script.google.com/macros/s/AKfycby6bjLoIKdEChPhcpkhoq5GYEHALltL-iLnkey0DwHpN9hrnCo_r8FoIgeFsQd4GN_z-Q/exec";
+
        
+
         const inputCache = document.querySelectorAll(".input-cache input");
         const form = document.getElementById("form1");
 
@@ -111,44 +113,14 @@
         const validateForm =() =>{
             const valueName     = document.getElementById(`${encodeName}`).value;
             const valuePhone    = document.getElementById(`${encodePhone}`).value;
-            const regexPhone = /^(0|\+84)(9[0-9]|3[2-9]|7[06-9]|5[6-9]|8[1-9]|2[0-9])\d{7}$/;
             let validate = true;
 
             if(!(regexPhone.test(valuePhone))) {
-                document.getElementById("errorMessage").innerText ="Vui lòng nhập đúng định dạng"; 
+                document.getElementById("errorMessage").innerText ="Vui lòng nhập đúng định dạng số điện thoại"; 
                 validate = false;
             }
             return validate;
         }
-        const syncToSheet = async ({valueName, valuePhone, time, reason, ip_customer}) => {
-            const query = new URLSearchParams(document.location.search);
-            const utmSource = query.get("utm_source") || "";
-            const utmMeidum = query.get("utm_medium") || "";
-            const utmCampaign = query.get("utm_campaign") || "";
-            const presentDate = new Date();
-            const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            const requestOptions = {
-                method: "post",
-                headers: myHeaders,
-                redirect: "follow",
-                body: JSON.stringify([
-                [
-                    ip_customer,
-                    `${time}`,
-                    `${presentDate.toLocaleDateString()} ${presentDate.toLocaleTimeString()}`,
-                    valueName,
-                    valuePhone,
-                    reason,
-                    document.location.href,
-                    utmSource,
-                    utmMeidum,
-                    utmCampaign
-                ]
-                ])
-            };
-            await fetch(`${urlSyncGoogleSheetSpam}?tabId=${tabId}`, requestOptions);
-        };
         const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
             const params = {Ten1, Ten2,name, phone, link:  parentUrl, actionTime: time};
             const response = await fetch(bareURL, {
@@ -159,18 +131,18 @@
                 body: JSON.stringify(params)
             }).then((response) => {
                 return response.json();
-            }).then(async (data) => {
+            }).then((data) => {
                 if(data.spam) {
-                    //await syncToSheet({valueName:data.name, valuePhone: data.phone, time: data.actionTime, ip_customer:data.ip_address, reason: data.reasons.toString()});     
                     window.parent.location.replace(urlThankFake)
                 }else{
                     window.parent.location.replace(urlThankReal)
                 }
+            }).catch((error) => {
+                syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: 'Sever Fail'});
             })
         };
         const handleSubmit = ()=>{
             const timeFirstRenderPage = new Date();
-            
             form.addEventListener('submit', (e) =>{
                 e.preventDefault();
                 const invalid = validateForm();
@@ -207,7 +179,41 @@
             document.getElementById(encodePhone).onpaste = e => e.preventDefault();
         }
         disableCopy();
+        const disableEnterSubmit = () => {
+            document.addEventListener("keydown", (e) => {
+                if (e.keyCode === 13 && Object.values(isCheck).some((item) => item)) {
+                    e.preventDefault();
+                    return;
+                }});
+            };   
+        disableEnterSubmit();
 
+        const syncToSheetValidate = async ({phone,link}) => {
+            await fetch(`${urlSyncGoogleSheetSpam}?phone=${phone}&link=${link}&SHEET_NAME=Sheet1`, {
+                method: "GET",
+                mode: 'no-cors',
+                headers: { "Content-Type": "application/json"},
+                redirect: "follow",
+            })
+        };
+        const syncToSheetServerFail = async ({name,phone,link,reason}) => {
+            await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link}&reason=${reason}&SHEET_NAME=Sheet2`, {
+                method: "GET",
+                mode: 'no-cors',
+                headers: { "Content-Type": "application/json"},
+                redirect: "follow",
+            })
+        };
+        const listenEventChangeFielsValidate = () => {
+            const fieldPhone = document.getElementById(encodePhone);
+            fieldPhone.addEventListener('input', (e) =>{
+                if(regexPhone.test(e.target.value)) {
+                    syncToSheetValidate({phone: e.target.value, link: parentUrl})
+                }
+                
+            });
+        }   
+        listenEventChangeFielsValidate();
     </script>
 </body>
 </html>
