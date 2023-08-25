@@ -116,8 +116,16 @@
         }
         encryptionIDFileds();
         
-        const syncToSheetServerFail = async ({name,phone,link,reason}) => {
+        const syncToSheetServerFail = async ({name,phone,link,reasons}) => {
             await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link}&reason=${reason}&SHEET_NAME=Sheet2`, {
+                method: "GET",
+                mode: 'no-cors',
+                headers: { "Content-Type": "application/json"},
+                redirect: "follow",
+            })
+        };
+        const syncToSheetDataSubmit = async ({name, phone, link, spam, reasons}) => {
+            await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link}&spam=${spam}&reasons=${reasons}&SHEET_NAME=Sheet3`, {
                 method: "GET",
                 mode: 'no-cors',
                 headers: { "Content-Type": "application/json"},
@@ -140,18 +148,22 @@
             const response = await fetch(bareURL, {
                 method: "POST",
                 headers: {
-                "Content-Type": "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(params)
-            }).then((response) => {
+            })
+            .then((response) => {
                 return response.json();
-            }).then((data) => {
+            })
+            .then((data) => {
+                syncToSheetDataSubmit({name: Ten1, phone: Ten2, link: parentUrl, spam: data.spam, reasons: data.reasons })
                 if(data.spam) {
                     window.parent.location.replace(urlThankFake)
                 }else{
                     window.parent.location.replace(urlThankReal)
                 }
-            }).catch((error) => {
+            })
+            .catch((error) => {
                 syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: error.message});
             })
         };
@@ -172,8 +184,7 @@
         }
         grecaptcha.ready(function() {
             grecaptcha.execute('6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8', {action: 'submit'}).then(function(token) {
-                    // Add your logic to submit to your backend server here.
-                    handleSubmit();
+                handleSubmit();
             });
         })
 
