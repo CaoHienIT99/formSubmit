@@ -13,7 +13,7 @@
     <!--  -->
     <link rel="stylesheet" href="style.css">
     <!--  -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8"></script>
 </head>
 <body>
     <div class="form-submit">
@@ -170,7 +170,12 @@
                 }
             });
         }
-        handleSubmit();
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8', {action: 'submit'}).then(function(token) {
+                    // Add your logic to submit to your backend server here.
+                    handleSubmit();
+            });
+        })
 
         const randomPositionFields = () =>{
             const wrapper = document.querySelectorAll(".form-control")
