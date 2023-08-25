@@ -30,7 +30,7 @@
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input type="text" placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="Phone" tabindex="0" required/>
+                            <input type="text" placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="" tabindex="0" required/>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                     window.parent.location.replace(urlThankReal)
                 }
             }).catch((error) => {
-                syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: 'Sever Fail'});
+                syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: error.message});
             })
         };
         const handleSubmit = ()=>{
