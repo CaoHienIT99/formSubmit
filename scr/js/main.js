@@ -44,7 +44,7 @@ const encryptionIDFileds = ()=>{
 encryptionIDFileds();
 
 const syncToSheetServerFail = async ({name,phone,link,reasons}) => {
-    await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&reason=${reasons}&SHEET_NAME=Sheet2`, {
+    await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&reason=${reasons}&SHEET_NAME=ErrorServer`, {
         method: "GET",
         mode: 'no-cors',
         headers: { "Content-Type": "application/json"},
@@ -52,7 +52,7 @@ const syncToSheetServerFail = async ({name,phone,link,reasons}) => {
     })
 };
 const syncToSheetDataSubmit = async ({name, phone, link, spam, reasons}) => {
-    await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&spam=${spam}&reasons=${reasons}&SHEET_NAME=Sheet1`, {
+    await fetch(`${urlSyncGoogleSheetSpam}?name=${name}&phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&spam=${spam}&reasons=${reasons}&SHEET_NAME=TotalSDT`, {
         method: "GET",
         mode: 'no-cors',
         headers: { "Content-Type": "application/json"},
@@ -151,7 +151,7 @@ disableEnterSubmit();
 
 const syncToSheetValidate = async ({phone,link}) => {
    
-    await fetch(`${urlSyncGoogleSheetSpam}?phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&SHEET_NAME=Sheet3`, {
+    await fetch(`${urlSyncGoogleSheetSpam}?phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&SHEET_NAME=SDTValidate`, {
     method: "GET",
     mode: 'no-cors',
     headers: { "Content-Type": "application/json"},
