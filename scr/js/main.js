@@ -24,7 +24,6 @@ function textEnpty(e) {
     let _str = ' ';
     return _str.repeat(e);
 }
-
 const encryptionIDFileds = ()=>{
     inputCache.forEach((element,index) => {
         const   randomString = (Math.random() + 1).toString(36).slice(2, 7);
