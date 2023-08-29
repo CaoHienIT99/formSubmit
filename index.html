@@ -17,6 +17,31 @@
     <link rel="stylesheet" href="style/style.css" />
     <!--  -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script type="text/javascript" src="js/main.js">
+        function handleSubmit(token){
+          console.log('grecaptcha', grecaptcha);
+          const responseCapcha = grecaptcha?.getResponse()
+          console.log("======>",responseCapcha)
+          if (responseCapcha) {
+              form.addEventListener('submit', (e) =>{
+                  e.preventDefault();
+                  const invalid = validateForm();
+                  if(invalid) {
+                      const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+                      const Ten1 = document.getElementById(`${encodeName}`).value;
+                      const Ten2 = document.getElementById(`${encodePhone}`).value;
+                      const name = document.getElementById("ten2").value;
+                      const phone = document.getElementById("sdt2").value;
+                      const buttonSubmit = document.getElementById("btn-submit");
+                      buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
+                      buttonSubmit.parentElement.classList.add("disable");
+                      //handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
+                  }
+              });
+          }
+          grecaptcha.reset();
+        }
+    </script>
   </head>
   <body>
     <div class="form-submit">
@@ -105,30 +130,6 @@
       src="https://js.sentry-cdn.com/36d36af7d47a94f674d7398a93a42087.min.js"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="js/main.js">
-      function handleSubmit(token){
-        console.log('grecaptcha', grecaptcha);
-        const responseCapcha = grecaptcha?.getResponse()
-        console.log("======>",responseCapcha)
-        if (responseCapcha) {
-            form.addEventListener('submit', (e) =>{
-                e.preventDefault();
-                const invalid = validateForm();
-                if(invalid) {
-                    const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
-                    const Ten1 = document.getElementById(`${encodeName}`).value;
-                    const Ten2 = document.getElementById(`${encodePhone}`).value;
-                    const name = document.getElementById("ten2").value;
-                    const phone = document.getElementById("sdt2").value;
-                    const buttonSubmit = document.getElementById("btn-submit");
-                    buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
-                    buttonSubmit.parentElement.classList.add("disable");
-                    //handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
-                }
-            });
-        }
-        grecaptcha.reset();
-      }
-    </script>
+    
   </body>
 </html>
