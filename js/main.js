@@ -91,34 +91,30 @@ const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
         syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: error.message});
     })
 };
-
-form.addEventListener('submit', (e) =>{
-    console.log('recapcha', grecaptcha)
-    e.preventDefault();
-    const invalid = validateForm();
-    if(invalid) {
-        const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
-        const Ten1 = document.getElementById(`${encodeName}`).value;
-        const Ten2 = document.getElementById(`${encodePhone}`).value;
-        const name = document.getElementById("ten2").value;
-        const phone = document.getElementById("sdt2").value;
-        const buttonSubmit = document.getElementById("btn-submit");
-        buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
-        buttonSubmit.parentElement.classList.add("disable");
-        handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
+const handleSubmit = (token) =>{
+    console.log('grecaptcha', grecaptcha);
+    const responseCapcha = grecaptcha?.getResponse()
+    console.log("======>",responseCapcha)
+    if (responseCapcha) {
+       
+        form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+            const invalid = validateForm();
+            if(invalid) {
+                const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+                const Ten1 = document.getElementById(`${encodeName}`).value;
+                const Ten2 = document.getElementById(`${encodePhone}`).value;
+                const name = document.getElementById("ten2").value;
+                const phone = document.getElementById("sdt2").value;
+                const buttonSubmit = document.getElementById("btn-submit");
+                buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
+                buttonSubmit.parentElement.classList.add("disable");
+                handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
+            }
+        });
     }
-});
-
-// const handleSubmit = (token) =>{
-//     console.log('grecaptcha', grecaptcha);
-//     const responseCapcha = grecaptcha?.getResponse()
-//     console.log("======>",responseCapcha)
-//     if (responseCapcha) {
-       
-       
-//     }
-//     grecaptcha.reset();
-// }
+    grecaptcha.reset();
+}
 // handleSubmit();
 
 const randomPositionFields = () =>{
