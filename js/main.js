@@ -91,30 +91,29 @@ const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
         syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: error.message});
     })
 };
-const handleSubmit = ()=>{
-    const timeFirstRenderPage = new Date();
-    form.addEventListener('submit', (e) =>{
-        e.preventDefault();
-        const invalid = validateForm();
-        if(invalid) {
-            const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
-            const Ten1 = document.getElementById(`${encodeName}`).value;
-            const Ten2 = document.getElementById(`${encodePhone}`).value;
-            const name = document.getElementById("ten2").value;
-            const phone = document.getElementById("sdt2").value;
-            const buttonSubmit = document.getElementById("btn-submit");
-            buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
-            buttonSubmit.parentElement.classList.add("disable");
-            handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
-        }
-    });
+const handleSubmit = (token) =>{
+    const responseCapcha = grecaptcha.getResponse()
+    console.log("======>",responseCapcha)
+    if (grecaptcha.getResponse() !== "") {
+        const timeFirstRenderPage = new Date();
+        form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+            const invalid = validateForm();
+            if(invalid) {
+                const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+                const Ten1 = document.getElementById(`${encodeName}`).value;
+                const Ten2 = document.getElementById(`${encodePhone}`).value;
+                const name = document.getElementById("ten2").value;
+                const phone = document.getElementById("sdt2").value;
+                const buttonSubmit = document.getElementById("btn-submit");
+                buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
+                buttonSubmit.parentElement.classList.add("disable");
+                handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
+            }
+        });
+    }
+    grecaptcha.reset();
 }
-grecaptcha.ready(function() {
-    grecaptcha.execute('6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8', {action: 'submit'}).then(function(token) {
-        handleSubmit();
-    });
-})
-
 const randomPositionFields = () =>{
     const wrapper = document.querySelectorAll(".form-control")
     const fieldName = document.getElementById(encodeName).parentElement.innerHTML;
@@ -159,10 +158,9 @@ const syncToSheetValidate = async ({phone,link}) => {
 const listenEventChangeFielsValidate = () => {
     const fieldPhone = document.getElementById(encodePhone);
     fieldPhone.addEventListener('input', (e) =>{
-    if(regexPhone.test(e.target.value)) {
-        syncToSheetValidate({phone: e.target.value, link: parentUrl})
-    }
-    
+        if(regexPhone.test(e.target.value)) {
+            syncToSheetValidate({phone: e.target.value, link: parentUrl})
+        }
     });
 }   
 listenEventChangeFielsValidate();
