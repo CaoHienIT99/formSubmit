@@ -150,7 +150,6 @@ function handleSubmit() {
           }).then(function(token) {
             // Add your logic to submit to your backend server here.
             handlePostData({ Ten1, Ten2, name, phone, time: timeClickBuy });
-            console.log(token);
           });
       });
     }
