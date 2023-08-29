@@ -92,9 +92,9 @@ const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
     })
 };
 const handleSubmit = (token) =>{
-    const responseCapcha = grecaptcha.getResponse()
+    const responseCapcha = grecaptcha?.getResponse()
     console.log("======>",responseCapcha)
-    if (grecaptcha.getResponse() !== "") {
+    if (responseCapcha) {
         const timeFirstRenderPage = new Date();
         form.addEventListener('submit', (e) =>{
             e.preventDefault();
