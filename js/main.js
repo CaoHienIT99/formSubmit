@@ -109,9 +109,9 @@ const handleSubmit = ()=>{
         }
     });
 }
-handleSubmit();
 grecaptcha.ready(function() {
     grecaptcha.execute('6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8', {action: 'submit'}).then(function(token) {
+        handleSubmit();
     });
 })
 
