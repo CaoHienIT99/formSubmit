@@ -1,3 +1,4 @@
+
 let encodeName = "",
   encodePhone = "";
 const timeFirstRenderPage = new Date();
@@ -129,27 +130,33 @@ const handlePostData = async ({ Ten1, Ten2, name, phone, time }) => {
     });
 };
 
-form.addEventListener("submit", handleSubmit, true);
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const invalid = validateForm();
-  console.log("🚀 ~ file: main.js:133 ~ handleSubmit ~ invalid:", invalid);
-  if (invalid) {
-    const timeClickBuy = Math.round(
-      Math.abs(new Date() - timeFirstRenderPage) / 1000
-    );
-    const Ten1 = document.getElementById(`${encodeName}`).value;
-    const Ten2 = document.getElementById(`${encodePhone}`).value;
-    const name = document.getElementById("ten2").value;
-    const phone = document.getElementById("sdt2").value;
-    const buttonSubmit = document.getElementById("btn-submit");
-    buttonSubmit.innerText = "ĐANG XỬ LÝ!!!";
-    buttonSubmit.parentElement.classList.add("disable");
-    //handlePostData({ Ten1, Ten2, name, phone, time: timeClickBuy });
-  }
+function handleSubmit() {
+  form.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const invalid = validateForm();
+    if (invalid) {
+      const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+      const Ten1 = document.getElementById(`${encodeName}`).value;
+      const Ten2 = document.getElementById(`${encodePhone}`).value;
+      const name = document.getElementById("ten2").value;
+      const phone = document.getElementById("sdt2").value;
+      const buttonSubmit = document.getElementById("btn-submit");
+      buttonSubmit.innerText = "ĐANG XỬ LÝ!!!";
+      buttonSubmit.parentElement.classList.add("disable");
+      grecaptcha.ready(function() {
+          grecaptcha.execute(buttonSubmit.getAttribute('data-sitekey'), {
+              action: 'submit'
+          }).then(function(token) {
+            // Add your logic to submit to your backend server here.
+            handlePostData({ Ten1, Ten2, name, phone, time: timeClickBuy });
+            console.log(token);
+          });
+      });
+    }
+  });
 }
-// handleSubmit();
+handleSubmit();
 
 function randomPositionFields() {
   const wrapper = document.querySelectorAll(".form-control");
