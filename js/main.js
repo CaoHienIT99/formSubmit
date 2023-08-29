@@ -114,6 +114,8 @@ const handleSubmit = (token) =>{
     }
     grecaptcha.reset();
 }
+handleSubmit();
+
 const randomPositionFields = () =>{
     const wrapper = document.querySelectorAll(".form-control")
     const fieldName = document.getElementById(encodeName).parentElement.innerHTML;
