@@ -92,6 +92,7 @@
                 class="g-recaptcha"
                 data-sitekey="6LfcHOInAAAAAK7Tjg6Xechj0Nee-2kVUm5hNNtw"
                 data-callback="handleSubmit"
+                data-action='submit'
               >
                 ĐĂNG KÝ NGAY
               </button>
@@ -104,7 +105,7 @@
       src="https://js.sentry-cdn.com/36d36af7d47a94f674d7398a93a42087.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/main.js">
+    <script type="text/javascript" src="js/main.js">
       function handleSubmit(token){
         console.log('grecaptcha', grecaptcha);
         const responseCapcha = grecaptcha?.getResponse()
