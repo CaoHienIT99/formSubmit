@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Form Spam</title>
+    <title>Order Skycom System</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="audience" content="General" />
@@ -10,32 +10,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=auto">
     <meta property="og:type" content="product" />
     <meta property="og:locale" content="vi_VN" />
-
     <!--  -->
-		
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        .hidden {
-            display: none !important
-        }
-    </style>
+    <link rel="stylesheet" href="style/style.css">
+    <!--  -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8"></script>
 </head>
 <body>
     <div class="form-submit">
-        <input type="hidden" name="platform" id="flaform">
-        <div class="form-submit--ladi">
-            <form method="POST" id="form1">
+        <div class="form-submit--skycom">
+            <form method="POST" id="form1" autocomplete="off">
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input placeholder="T&#xEA;n (*)" id="" name="" tabindex="0" />
+                            <input type="text" placeholder="Họ và T&#xEA;n" id="" tabindex="0" required />
                         </div>
                     </div>
                 </div>
                 <div class="form-control">
                     <div class="control-wrapper">
                         <div class="input-group input-cache">
-                            <input placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i (*)" id="" name="" tabindex="0" />
+                            <input type="text" placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="" tabindex="0" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-control hidden">
+                    <div class="control-wrapper">
+                        <div class="input-group">
+                            <input placeholder="Ten" id="ten2" name="ten2" tabindex="0" />
                         </div>
                     </div>
                 </div>
@@ -47,80 +48,30 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <div class="control-wrapper">
-                        <select class="form-control--seclect" tabindex="6" name="" data-selected="">
+                        <select class="form-control--seclect" tabindex="6" name="" data-selected="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)">
                             <option value="" class="hidden">Chọn combo muốn mua</option>
-                            <option value="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)">1 Hộp Nhỏ - 10 Viên (Giá dùng thử)</option>
+                            <option value="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)" selected>1 Hộp Nhỏ - 10 Viên (Giá dùng thử)</option>
                             <option value="1 Hộp Lớn - 30 viên">1 Hộp Lớn - 30 viên</option>
                             <option value="2 Hộp Lớn  - 60 viên">2 Hộp Lớn  - 60 viên</option>
                         </select>
-                    </div> 
                 </div>
                 <div id="errorMessage"></div>
+                <div class="form-submit">
+                    <div class="button-wrapper">
+                        <button data-sitekey="6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8" 
+                                data-callback='onSubmit' 
+                                data-action='submit' 
+                                type="submit" id="btn-submit"
+                        >
+                            ĐĂNG KÝ NGAY
+                        </button>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
+    <script src="https://js.sentry-cdn.com/36d36af7d47a94f674d7398a93a42087.min.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script>
-        let   encodeName = '',
-              encodePhone ='' 
-
-        const   inputCache = document.querySelectorAll(".input-cache input");
-        const   form = document.getElementById("form1");
-
-        const randomNumber =(min,max) =>{
-            return Math.floor(Math.random() * (max - min + 1) + min)
-        }
-        const number = randomNumber(0,100);
-
-        function textEnpty(e) {
-            let _str = ' ';
-            return _str.repeat(e);
-        }
-       
-        const encryptionIDFileds = ()=>{
-
-            inputCache.forEach((element,index) => {
-                const   randomString = (Math.random() + 1).toString(36).slice(2, 7);
-                if(index === 0) {
-                    encodeName = randomString
-                }
-                if(index === 1) {
-                    encodePhone = randomString   
-                }
-                let placeholder = element.getAttribute("placeholder");
-                placeholder += textEnpty(100) + randomString + "-" + randomString + textEnpty(randomNumber(12,20)) + randomString + "-" + randomString;
-
-                element.setAttribute("id",randomString)
-                element.setAttribute("name",randomString)        
-                element.setAttribute("placeholder",placeholder)        
-            })
-        }
-        encryptionIDFileds();
-        
-        const validateForm =() =>{
-            const valueName = document.getElementById(`${encodeName}`).value;
-            const valuePhone = document.getElementById(`${encodePhone}`).value;
-            const regexPhone = /^(0|\+84)(9[0-9]|3[2-9]|7[06-9]|5[6-9]|8[1-9]|2[0-9])\d{7}$/;
-            if(!valueName) {
-                document.getElementById("errorMessage").innerText ="Vui lòng nhập tên"; 
-                
-            }
-            if(!valuePhone) {
-                document.getElementById("errorMessage").innerText ="Vui lòng nhập SDT";   
-            }
-            if(!(regexPhone.test(valuePhone))) {
-                document.getElementById("errorMessage").innerText ="Vui lòng nhập đúng định dạng"; 
-            }
-        }
-      
-        const disableCopy = () =>{
-            document.getElementById(encodeName).onpaste = e => e.preventDefault();
-            document.getElementById(encodePhone).onpaste = e => e.preventDefault();
-        }
-        disableCopy();
-
-    </script>
 </body>
 </html>
-
