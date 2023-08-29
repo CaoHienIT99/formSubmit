@@ -8,7 +8,6 @@ let parentUrl = window.location.href.indexOf("split=") > -1 ? window.location.hr
 const bareURL = 'https://backendsyncdata.skycom.vn/api/spam_check/form-spam-check';
 const urlThankReal = 'https://hoaianbeauty.com/pages/cam-on-quy-khach';
 const urlThankFake = 'https://hoaianbeauty.com/pages/camon-quy-khach';
-//const urlSyncGoogleSheetSpam = "https://script.google.com/macros/s/AKfycby6bjLoIKdEChPhcpkhoq5GYEHALltL-iLnkey0DwHpN9hrnCo_r8FoIgeFsQd4GN_z-Q/exec";
 const urlSyncGoogleSheetSpam = "https://script.google.com/macros/s/AKfycbzGbJQ83uGDjEGC5x8yqbIjKr0ATrzk6gNYcIxAI958cHpSfc-r6KHnylZNK7fxCpFgaQ/exec";
 
 const inputCache = document.querySelectorAll(".input-cache input");
@@ -110,9 +109,9 @@ const handleSubmit = ()=>{
         }
     });
 }
+handleSubmit();
 grecaptcha.ready(function() {
     grecaptcha.execute('6Lf5K9MnAAAAAACAkPZK5G-N5iHEOLI25oMPjOH8', {action: 'submit'}).then(function(token) {
-        handleSubmit();
     });
 })
 
@@ -149,7 +148,7 @@ const disableEnterSubmit = () => {
 disableEnterSubmit();
 
 const syncToSheetValidate = async ({phone,link}) => {
-   
+    link.indexOf("&") > -1 ? link.replaceAll('&', '_SKYCOM_') : link
     await fetch(`${urlSyncGoogleSheetSpam}?phone=${phone}&link=${link.replaceAll('&', '_SKYCOM_')}&SHEET_NAME=SDTValidate`, {
     method: "GET",
     mode: 'no-cors',
