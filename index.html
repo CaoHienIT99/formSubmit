@@ -1,73 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Order Skycom System</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="audience" content="General" />
     <meta name="resource-type" content="Document" />
     <meta name="distribution" content="Global" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=auto">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=auto"
+    />
     <meta property="og:type" content="product" />
     <meta property="og:locale" content="vi_VN" />
     <!--  -->
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" />
     <!--  -->
     <script src="https://www.google.com/recaptcha/api.js?render=6LfcHOInAAAAAK7Tjg6Xechj0Nee-2kVUm5hNNtw"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="form-submit">
-        <div class="form-submit--skycom">
-            <form method="POST" id="form1" autocomplete="off">
-                <div class="form-control">
-                    <div class="control-wrapper">
-                        <div class="input-group input-cache">
-                            <input type="text" placeholder="Họ và T&#xEA;n" id="" tabindex="0" required />
-                        </div>
-                    </div>
-                </div>
-                <div class="form-control">
-                    <div class="control-wrapper">
-                        <div class="input-group input-cache">
-                            <input type="text" placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i" id="" name="" tabindex="0" required/>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-control hidden">
-                    <div class="control-wrapper">
-                        <div class="input-group">
-                            <input placeholder="Ten" id="ten2" name="ten2" tabindex="0" />
-                        </div>
-                    </div>
-                </div>
-                <div class="form-control hidden">
-                    <div class="control-wrapper">
-                        <div class="input-group">
-                            <input placeholder="Số điện thoại" id="sdt2" name="sdt2" tabindex="0" />
-                        </div>
-                    </div>
-                </div>
-                <div class="form-control">
-                        <select class="form-control--seclect" tabindex="6" name="" data-selected="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)">
-                            <option value="" class="hidden">Chọn combo muốn mua</option>
-                            <option value="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)" selected>1 Hộp Nhỏ - 10 Viên (Giá dùng thử)</option>
-                            <option value="1 Hộp Lớn - 30 viên">1 Hộp Lớn - 30 viên</option>
-                            <option value="2 Hộp Lớn  - 60 viên">2 Hộp Lớn  - 60 viên</option>
-                        </select>
-                </div>
-                <div id="errorMessage"></div>
-                <div class="form-submit">
-                    <div class="button-wrapper">
-                        <button type="submit" id="btn-submit" class="g-recaptcha" data-sitekey="6LfcHOInAAAAAK7Tjg6Xechj0Nee-2kVUm5hNNtw" data-callback='handleSubmit'>
-                            ĐĂNG KÝ NGAY
-                        </button>
-                    </div>
-                </div>
-                
-            </form>
-        </div>
+      <div class="form-submit--skycom">
+        <form method="POST" id="form1" autocomplete="off">
+          <div class="form-control">
+            <div class="control-wrapper">
+              <div class="input-group input-cache">
+                <input
+                  type="text"
+                  placeholder="Họ và T&#xEA;n"
+                  id=""
+                  tabindex="0"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-control">
+            <div class="control-wrapper">
+              <div class="input-group input-cache">
+                <input
+                  type="text"
+                  placeholder="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i"
+                  id=""
+                  name=""
+                  tabindex="0"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-control hidden">
+            <div class="control-wrapper">
+              <div class="input-group">
+                <input placeholder="Ten" id="ten2" name="ten2" tabindex="0" />
+              </div>
+            </div>
+          </div>
+          <div class="form-control hidden">
+            <div class="control-wrapper">
+              <div class="input-group">
+                <input
+                  placeholder="Số điện thoại"
+                  id="sdt2"
+                  name="sdt2"
+                  tabindex="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-control">
+            <select
+              class="form-control--seclect"
+              tabindex="6"
+              name=""
+              data-selected="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)"
+            >
+              <option value="" class="hidden">Chọn combo muốn mua</option>
+              <option value="1 Hộp Nhỏ - 10 Viên (Giá dùng thử)" selected>
+                1 Hộp Nhỏ - 10 Viên (Giá dùng thử)
+              </option>
+              <option value="1 Hộp Lớn - 30 viên">1 Hộp Lớn - 30 viên</option>
+              <option value="2 Hộp Lớn  - 60 viên">2 Hộp Lớn - 60 viên</option>
+            </select>
+          </div>
+          <div id="errorMessage"></div>
+          <div class="form-submit">
+            <div class="button-wrapper">
+              <button
+                type="submit"
+                id="btn-submit"
+                class="g-recaptcha"
+                data-sitekey="6LfcHOInAAAAAK7Tjg6Xechj0Nee-2kVUm5hNNtw"
+                data-callback="handleSubmit"
+              >
+                ĐĂNG KÝ NGAY
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <script src="https://js.sentry-cdn.com/36d36af7d47a94f674d7398a93a42087.min.js" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-</body>
+    <script
+      src="https://js.sentry-cdn.com/36d36af7d47a94f674d7398a93a42087.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js">
+        const handleSubmit = (token) =>{
+          console.log('grecaptcha', grecaptcha);
+          const responseCapcha = grecaptcha?.getResponse()
+          console.log("======>",responseCapcha)
+          if (responseCapcha) {
+
+              form.addEventListener('submit', (e) =>{
+                  e.preventDefault();
+                  const invalid = validateForm();
+                  if(invalid) {
+                      const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+                      const Ten1 = document.getElementById(`${encodeName}`).value;
+                      const Ten2 = document.getElementById(`${encodePhone}`).value;
+                      const name = document.getElementById("ten2").value;
+                      const phone = document.getElementById("sdt2").value;
+                      const buttonSubmit = document.getElementById("btn-submit");
+                      buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
+                      buttonSubmit.parentElement.classList.add("disable");
+                      //handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
+                  }
+              });
+          }
+          grecaptcha.reset();
+        }
+    </script>
+  </body>
 </html>
