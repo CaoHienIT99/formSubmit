@@ -142,7 +142,7 @@ function handleSubmit() {
     const buttonSubmit = document.getElementById("btn-submit");
     buttonSubmit.innerText = "ĐANG XỬ LÝ!!!";
     buttonSubmit.parentElement.classList.add("disable");
-    handlePostData({ Ten1, Ten2, name, phone, time: timeClickBuy });
+    //handlePostData({ Ten1, Ten2, name, phone, time: timeClickBuy });
   }
 }
 // handleSubmit();
