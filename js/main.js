@@ -128,6 +128,9 @@ const handlePostData = async ({ Ten1, Ten2, name, phone, time }) => {
       });
     });
 };
+
+form.addEventListener("submit", handleSubmit, true);
+
 function handleSubmit(e) {
   e.preventDefault();
   const invalid = validateForm();
