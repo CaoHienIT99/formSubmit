@@ -1,6 +1,6 @@
 let     encodeName = '',
         encodePhone ='';
-
+const timeFirstRenderPage = new Date();
 const regexPhone = /^(0|\+84)(9[0-9]|3[2-9]|7[06-9]|5[6-9]|8[1-9]|2[0-9])\d{7}$/;
 
 let parentUrl = window.location.href.indexOf("split=") > -1 ? window.location.href.split("split=")[1] : document.location.href;
@@ -91,30 +91,35 @@ const handlePostData = async ({ Ten1, Ten2, name, phone,time})  => {
         syncToSheetServerFail({name:Ten1,phone:Ten2,link:parentUrl,reason: error.message});
     })
 };
-const handleSubmit = (token) =>{
-    const responseCapcha = grecaptcha?.getResponse()
-    console.log("======>",responseCapcha)
-    if (responseCapcha) {
-        const timeFirstRenderPage = new Date();
-        form.addEventListener('submit', (e) =>{
-            e.preventDefault();
-            const invalid = validateForm();
-            if(invalid) {
-                const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
-                const Ten1 = document.getElementById(`${encodeName}`).value;
-                const Ten2 = document.getElementById(`${encodePhone}`).value;
-                const name = document.getElementById("ten2").value;
-                const phone = document.getElementById("sdt2").value;
-                const buttonSubmit = document.getElementById("btn-submit");
-                buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
-                buttonSubmit.parentElement.classList.add("disable");
-                handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
-            }
-        });
+
+form.addEventListener('submit', (e) =>{
+    console.log('recapcha', grecaptcha)
+    e.preventDefault();
+    const invalid = validateForm();
+    if(invalid) {
+        const timeClickBuy = Math.round(Math.abs(new Date() - timeFirstRenderPage) / 1000);
+        const Ten1 = document.getElementById(`${encodeName}`).value;
+        const Ten2 = document.getElementById(`${encodePhone}`).value;
+        const name = document.getElementById("ten2").value;
+        const phone = document.getElementById("sdt2").value;
+        const buttonSubmit = document.getElementById("btn-submit");
+        buttonSubmit.innerText = "ĐANG XỬ LÝ!!!"
+        buttonSubmit.parentElement.classList.add("disable");
+        handlePostData({Ten1, Ten2, name, phone, time: timeClickBuy});
     }
-    grecaptcha.reset();
-}
-handleSubmit();
+});
+
+// const handleSubmit = (token) =>{
+//     console.log('grecaptcha', grecaptcha);
+//     const responseCapcha = grecaptcha?.getResponse()
+//     console.log("======>",responseCapcha)
+//     if (responseCapcha) {
+       
+       
+//     }
+//     grecaptcha.reset();
+// }
+// handleSubmit();
 
 const randomPositionFields = () =>{
     const wrapper = document.querySelectorAll(".form-control")
