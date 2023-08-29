@@ -129,6 +129,7 @@ const handlePostData = async ({ Ten1, Ten2, name, phone, time }) => {
     });
 };
 function handleSubmit() {
+  
   const invalid = validateForm();
   console.log("🚀 ~ file: main.js:133 ~ handleSubmit ~ invalid:", invalid);
   if (invalid) {
